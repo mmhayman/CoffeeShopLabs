@@ -17,7 +17,9 @@
         color: white;
         font-size: xx-large;
         text-align: center;
+        padding: 100px 0;
         font: bold 50px Georgia;
+
 
     }
 

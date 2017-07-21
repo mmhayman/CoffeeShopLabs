@@ -35,28 +35,34 @@
 <body>
 
 <form method = "post" action="/summary">
-    First Name:
-    <input type = "text" name = "firstName" value = "First Name">
+
+    <form action="/action_page_post.php" method="post">
+        First Name:
+        <input type = "text" name = "firstName" value = "First Name" required>
     <br>
     <br>
     Last Name:
-    <input type = "text" name = "lastName" value = "Last Name" >
+    <input type = "text" name = "lastName" value = "Last Name"required >
     <br>
     <br>
     Email:
-    <input type = "text" name = "email" value = "email@gmail.com" >
+    <input type = "text" name = "email" value = "email@gmail.com" required>
     <br>
     <br>
     Phone Number:
-    <input type = "text" name = "phoneNumber" value = "123-456-7890" >
+    <input type = "text" name = "phoneNumber" value = "123-456-7890"required >
     <br>
     <br>
     Password:
-    <input type = "password" name = "password" value = "*******" >
+    <input type = "password" name = "password" value = "*******" required>
     <br>
     <br>
     <input type = "submit" value = "Register">
+
+
+    </form>
 </form>
+
 
 </body>
 </html>
