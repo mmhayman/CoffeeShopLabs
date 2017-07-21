@@ -14,17 +14,17 @@
 
         p {
 
-            color: black;
             font-size: xx-large;
 
         }
 
         body {
             background-color: dodgerblue;
+            color: paleturquoise;
 
         }
 
-        h1{
+        h1 {
             color: chartreuse;
             font-family: "Gill Sans";
         }
@@ -34,33 +34,66 @@
 </head>
 <body>
 
-<form method = "post" action="/summary">
+<form method="post" action="/summary">
 
     <form action="/action_page_post.php" method="post">
         First Name:
-        <input type = "text" name = "firstName" value = "First Name" required>
-    <br>
-    <br>
-    Last Name:
-    <input type = "text" name = "lastName" value = "Last Name"required >
-    <br>
-    <br>
-    Email:
-    <input type = "text" name = "email" value = "email@gmail.com" required>
-    <br>
-    <br>
-    Phone Number:
-    <input type = "text" name = "phoneNumber" value = "123-456-7890"required >
-    <br>
-    <br>
-    Password:
-    <input type = "password" name = "password" value = "*******" required>
-    <br>
-    <br>
-    <input type = "submit" value = "Register">
+        <input type="text" name="firstName" value="First Name" required>
+        <br>
+        <br>
+        Last Name:
+        <input type="text" name="lastName" value="Last Name" required>
+        <br>
+        <br>
+        Email:
+        <input type="text" name="email" value="email@gmail.com" required>
+        <br>
+        <br>
+        Phone Number:
+        <input type="text" name="phoneNumber" value="123-456-7890" required>
+        <br>
+        <br>
+        Password:
+        <input type="password" name="password" value="*******" required>
+        <br>
+        <br>
+
+
+        <br>
+
+
+        Would you like to be on our mailing list?
+        <br>
+
+        <select name="mailingList">
+
+            <option value="yes">Yes</option>
+            <option value="No">No</option>
+            <option value="Maybe">Maybe</option>
+        </select>
+        <br>
+
+        <br>
+        What is your coffee preference? <br>
+        <input type="checkbox" name="preferences" value="coffee">Coffee<br>
+        <input type="checkbox" name="preferences" value="espresso">Espresso<br>
+        <input type="checkbox" name="preferences" value="macchiato">Macchiato<br>
+        <input type="checkbox" name="preferences" value="cappuccino">Cappuccino<br>
+        <input type="checkbox" name="preferences" value="mocha">Mocha<br>
+        <input type="checkbox" name="preferences" value="flatwhite">Flat White<br>
+        Gender:
+        <br>
+        <form action="/action_page_post.php" method="post">
+        <input type="radio" name="gender" value="male"> Male<br>
+        <input type="radio" name="gender" value="female"> Female<br>
+        <input type="radio" name="gender" value="other"> Other
+        <br><br>
+        <input type="submit" value="Register">
 
 
     </form>
+
+
 </form>
 
 
