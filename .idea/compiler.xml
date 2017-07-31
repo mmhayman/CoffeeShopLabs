@@ -6,10 +6,12 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="CoffeeLabs" />
         <module name="SpringDemoJune2" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="CoffeeLabs" target="1.5" />
       <module name="SpringDemoJune2" target="1.5" />
     </bytecodeTargetLevel>
   </component>

@@ -19,18 +19,19 @@
             color: white;
             font-size: xx-large;
             font-family: "Times New Roman";
+        }
+        h1 {
 
-
-
+            color: paleturquoise;
         }
 
     </style>
 </head>
 <body>
 
-Hello
-${firstName}
-
+Hello!
+<br>
+<h1> You are added to the database!</h1>
 
 </body>
 </html>
