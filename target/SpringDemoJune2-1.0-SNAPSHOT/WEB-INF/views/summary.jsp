@@ -33,5 +33,7 @@ Hello!
 <br>
 <h1> You are added to the database!</h1>
 
+<a href="items" > GC Coffee Menu</a>
+
 </body>
 </html>

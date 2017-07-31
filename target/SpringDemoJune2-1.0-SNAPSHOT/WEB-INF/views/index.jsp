@@ -12,16 +12,15 @@
 
     <style>
 
-    p {
+        p {
 
-        color: white;
-        font-size: xx-large;
-        text-align: center;
-        padding: 100px 0;
-        font: bold 50px Georgia;
+            color: white;
+            font-size: xx-large;
+            text-align: center;
+            padding: 100px 0;
+            font: bold 50px Georgia;
 
-
-    }
+        }
 
         body {
             background-color: lightseagreen;
@@ -35,7 +34,14 @@
 
     <br>
 
-    <a href = "registration"> Register!</a></p>
+    <a href="/registration"> Register!</a>
+    <br>
+    <a href="/ListItems"> GC Coffee Menu</a>
+<br>
+<br>
+
+
+</p>
 
 
 </body>
