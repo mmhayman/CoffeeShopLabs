@@ -15,7 +15,7 @@
     <schema id="9" parent="1" name="test2"/>
     <table id="10" parent="2" name="items"/>
     <table id="11" parent="2" name="users"/>
-    <column id="12" parent="10" name="userID">
+    <column id="12" parent="10" name="itemid">
       <Position>1</Position>
       <DataType>int(10) unsigned|0</DataType>
       <NotNull>1</NotNull>
@@ -39,7 +39,7 @@
     </column>
     <key id="17" parent="10" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
-      <ColNames>userID</ColNames>
+      <ColNames>itemid</ColNames>
       <Primary>1</Primary>
     </key>
     <column id="18" parent="11" name="userID">

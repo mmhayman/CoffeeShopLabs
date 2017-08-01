@@ -69,6 +69,8 @@
         <td> ${myVar.price}</td>
 
 
+
+
     </tr>
 
     </c:forEach>
@@ -77,6 +79,7 @@
 </table>
 
 </p>
+<a href="/">Back to the Index</a>
 
 </body>
 </html>

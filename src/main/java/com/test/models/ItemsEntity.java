@@ -3,25 +3,25 @@ package com.test.models;
 import javax.persistence.*;
 
 /**
- * Created by michelhayman on 7/31/17.
+ * Created by michelhayman on 8/1/17.
  */
 @Entity
 @Table(name = "items", schema = "GCcoffeeshop", catalog = "")
 public class ItemsEntity {
-    private int userId;
+    private int itemid;
     private String name;
     private String description;
     private String quantity;
     private String price;
 
     @Id
-    @Column(name = "userID", nullable = false)
-    public int getUserId() {
-        return userId;
+    @Column(name = "itemid", nullable = false)
+    public int getItemid() {
+        return itemid;
     }
 
-    public void setUserId(int userId) {
-        this.userId = userId;
+    public void setItemid(int itemid) {
+        this.itemid = itemid;
     }
 
     @Basic
@@ -71,7 +71,7 @@ public class ItemsEntity {
 
         ItemsEntity that = (ItemsEntity) o;
 
-        if (userId != that.userId) return false;
+        if (itemid != that.itemid) return false;
         if (name != null ? !name.equals(that.name) : that.name != null) return false;
         if (description != null ? !description.equals(that.description) : that.description != null) return false;
         if (quantity != null ? !quantity.equals(that.quantity) : that.quantity != null) return false;
@@ -82,7 +82,7 @@ public class ItemsEntity {
 
     @Override
     public int hashCode() {
-        int result = userId;
+        int result = itemid;
         result = 31 * result + (name != null ? name.hashCode( ) : 0);
         result = 31 * result + (description != null ? description.hashCode( ) : 0);
         result = 31 * result + (quantity != null ? quantity.hashCode( ) : 0);

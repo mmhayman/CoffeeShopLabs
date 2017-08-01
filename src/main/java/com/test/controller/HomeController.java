@@ -75,7 +75,7 @@ public class HomeController {
 
     @RequestMapping("/ListItems")
     public ModelAndView listItems() {
-        ArrayList<ItemsEntity> itemList = getAllitems( );
+        ArrayList<ItemsEntity>itemList = getAllitems( );
 
 
         return new
@@ -139,9 +139,10 @@ public class HomeController {
         tx.commit( );
         session.close( );
 
-        model.addAttribute("newStuff", newItem);
+        ArrayList<ItemsEntity> itemList = getAllitems( );
+        model.addAttribute("cList", itemList);
 
-        return "ItemAdminPage";
+        return "items";
     }
 
     @RequestMapping("/additem")
@@ -149,5 +150,77 @@ public class HomeController {
     public String additem() {
 
         return "additem";
+    }
+
+    @RequestMapping("/delete")
+    public ModelAndView deleteItem(@RequestParam("id") int id) {
+
+        //temp object will store info for the object we want to delete
+        ItemsEntity temp = new ItemsEntity( );
+
+        temp.setItemid(id);
+
+        Configuration cfg = new Configuration( ).configure("hibernate.cfg.xml");
+
+        SessionFactory sessionFact = cfg.buildSessionFactory( ); // design pattern
+
+        Session items = sessionFact.openSession( );
+
+        items.beginTransaction( );
+
+        items.delete(temp); // delete object from the list
+
+        items.getTransaction( ).commit( ); // commit is what will be deleting the row from the database table
+
+        ArrayList<ItemsEntity> itemList = getAllitems( );
+
+        return new ModelAndView("ItemAdminPage", "cList", itemList);
+    }
+
+    @RequestMapping("/update")
+    // the String method returns the jsp page that we want to show
+    public String update() {
+
+        return "update";
+    }
+    private int itemid;
+    @RequestMapping("/storeitemid")
+    public String getitemid(int itemid){
+
+        this.itemid = itemid;
+        return "update";
+    }
+    @RequestMapping("/editItem")
+    public String editItem(@RequestParam("name") String name,
+                           @RequestParam("description") String description,
+                           @RequestParam("quantity") String quantity,
+                           @RequestParam("price") String price, Model model) {
+
+        Configuration cfg = new Configuration( ).configure("hibernate.cfg.xml");
+
+        SessionFactory sessionFact = cfg.buildSessionFactory( ); // design pattern
+
+        Session session = sessionFact.openSession( );
+
+        session.beginTransaction( );
+
+        ItemsEntity editItem = (ItemsEntity) session.get(ItemsEntity.class, itemid);
+
+        editItem.setName(name);
+        editItem.setDescription(description);
+        editItem.setQuantity(quantity);
+        editItem.setPrice(price);
+
+        session.update(editItem);
+        session.getTransaction().commit();
+        session.close( );
+
+        ArrayList<ItemsEntity> itemList = getAllitems( );
+
+        model.addAttribute("cList", itemList);
+
+        return "items";
+
+
     }
 }
