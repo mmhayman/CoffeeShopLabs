@@ -37,6 +37,10 @@
     <a href="/registration"> Register!</a>
     <br>
     <a href="/ListItems"> GC Coffee Menu</a>
+
+    <br>
+    <br>
+    <a href="/AdminPage"> Admin Page</a>
 <br>
 <br>
 

@@ -8,32 +8,42 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Lab 20 </title>
+    <title>Coffee </title>
 
     <style>
 
-
+        p {
+            text-align: center;
+        }
 
         body {
             background-color: darkslategrey;
-            color: white;
+            color: turquoise;
             font-size: xx-large;
             font-family: "Times New Roman";
         }
-        h1 {
 
-            color: paleturquoise;
-        }
 
     </style>
 </head>
 <body>
+<p>
 
 Hello!
-<br>
-<h1> You are added to the database!</h1>
+<br> <br>
+You are added to the database!
+    <br>
+    <br>
 
-<a href="items" > GC Coffee Menu</a>
+    <a href="/ListItems" style="color: white"> GC Coffee Menu</a>
 
+    <br>
+    <br>
+
+    <a href = "/AdminPage" style = "color: white">Admin Page</a>
+
+
+
+</p>
 </body>
 </html>

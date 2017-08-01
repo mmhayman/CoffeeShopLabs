@@ -52,12 +52,12 @@ public class HomeController {
                               @RequestParam("password") String password,
                               @RequestParam("gender") String gender,
                               @RequestParam("mailingList") String mailingList,
-                              @RequestParam("preferences") String preferences){
-        Configuration cfg = new Configuration().configure("hibernate.cfg.xml");
-        SessionFactory sessionFact = cfg.buildSessionFactory();
-        Session session = sessionFact.openSession();
-        Transaction tx = session.beginTransaction();
-        UsersEntity newUser = new UsersEntity();
+                              @RequestParam("preferences") String preferences) {
+        Configuration cfg = new Configuration( ).configure("hibernate.cfg.xml");
+        SessionFactory sessionFact = cfg.buildSessionFactory( );
+        Session session = sessionFact.openSession( );
+        Transaction tx = session.beginTransaction( );
+        UsersEntity newUser = new UsersEntity( );
         newUser.setFirstName(firstName);
         newUser.setLastName(lastName);
         newUser.setEmail(email);
@@ -67,8 +67,8 @@ public class HomeController {
         newUser.setMailingList(mailingList);
         newUser.setPreferences(preferences);
         session.save(newUser);
-        tx.commit();
-        session.close();
+        tx.commit( );
+        session.close( );
         model.addAttribute("newStuff", newUser);
         return "summary";
     }
@@ -89,18 +89,65 @@ public class HomeController {
         // allow app to specify properties and mapping documents
         // to use when creating the SessionFactory
 
-        Configuration cfg = new Configuration().configure("hibernate.cfg.xml");
+        Configuration cfg = new Configuration( ).configure("hibernate.cfg.xml");
 
-        SessionFactory sessionFact = cfg.buildSessionFactory();
+        SessionFactory sessionFact = cfg.buildSessionFactory( );
 
-        Session selectitems = sessionFact.openSession();
+        Session selectitems = sessionFact.openSession( );
 
-        selectitems.beginTransaction();
+        selectitems.beginTransaction( );
 
         // criteria is used to create the query
         Criteria c = selectitems.createCriteria(ItemsEntity.class);
 
         // results are returned
-        return (ArrayList<ItemsEntity>) c.list();
+        return (ArrayList<ItemsEntity>) c.list( );
+    }
+
+    @RequestMapping("/AdminPage")
+    public ModelAndView AddItems() {
+        ArrayList<ItemsEntity> itemList = getAllitems( );
+
+
+        return new
+                ModelAndView("ItemAdminPage", "cList", itemList);
+
+    }
+
+    @RequestMapping("/addNewItem")
+    public String addnewItem(@RequestParam("name") String name,
+                             @RequestParam("description") String description,
+                             @RequestParam("quantity") String quantity,
+                             @RequestParam("price") String price, Model model) {
+
+        Configuration cfg = new Configuration( ).configure("hibernate.cfg.xml");
+
+        SessionFactory sessionFact = cfg.buildSessionFactory( ); // design pattern
+
+        Session session = sessionFact.openSession( );
+
+        Transaction tx = session.beginTransaction( );
+
+        ItemsEntity newItem = new ItemsEntity( );
+
+        newItem.setName(name);
+        newItem.setDescription(description);
+        newItem.setQuantity(quantity);
+        newItem.setPrice(price);
+
+        session.save(newItem);
+        tx.commit( );
+        session.close( );
+
+        model.addAttribute("newStuff", newItem);
+
+        return "ItemAdminPage";
+    }
+
+    @RequestMapping("/additem")
+    // the String method returns the jsp page that we want to show
+    public String additem() {
+
+        return "additem";
     }
 }

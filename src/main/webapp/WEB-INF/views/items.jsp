@@ -11,12 +11,56 @@
 <html>
 <head>
     <title>GC Menu</title>
+
+    <style>
+
+        p {
+            text-align: center;
+            color: mediumspringgreen;
+            font-family: Dialog;
+
+        }
+
+        h1 {
+            color: white;
+        }
+        body {
+
+            background-color: salmon;
+            color: white;
+            font-family: "Comic Sans MS";
+            font-style: inherit;
+        }
+
+        h3 {
+
+            word-spacing: 30px;
+            font-size: small;
+            text-align: center;
+        }
+
+        table {
+            color: darkslategrey;
+            background-color: lightskyblue;
+            font-family: Tahoma;
+
+        }
+
+    </style>
 </head>
 <body>
 
-<table border="1">
+
+<p>
+<table border="1" cellspacing="20" align="center" >
+
+    <h1>Item List:</h1>
+
+    <h3>Name: Description:  Qty: Price:  </h3>
 
     <c:forEach var="myVar" items="${cList}">
+
+
 
     <tr>
         <td> ${myVar.name}</td>
@@ -28,8 +72,11 @@
     </tr>
 
     </c:forEach>
+
+
 </table>
 
+</p>
 
 </body>
 </html>
